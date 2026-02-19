@@ -26,3 +26,29 @@ console.log(getUser(1)); // cached
 console.log(getUser(2)); // DB call
 
 //// EX2
+
+function cacheFunction(fn) {
+  const cache = {};
+
+  return function(value) {
+    if (cache[value]) {
+      console.log("Cached result");
+      return cache[value];
+    }
+
+    console.log("Calculating...");
+    const result = fn(value);
+    cache[value] = result;
+    return result;
+  };
+}
+
+// slow function
+function square(n) {
+  return n * n;
+}
+
+const cachedSquare = cacheFunction(square);
+
+console.log(cachedSquare(5)); // calculated
+console.log(cachedSquare(5)); // cached
