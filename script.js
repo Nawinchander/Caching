@@ -52,3 +52,27 @@ const cachedSquare = cacheFunction(square);
 
 console.log(cachedSquare(5)); // calculated
 console.log(cachedSquare(5)); // cached
+
+
+
+/// EX 3 
+
+const cache = {};
+
+async function fetchData(url) {
+  if (cache[url]) {
+    console.log("Cache hit");
+    return cache[url];
+  }
+
+  console.log("Fetching from API...");
+  
+  // fake fetch result
+  const response = { data: "API response for " + url };
+
+  cache[url] = response;
+  return response;
+}
+
+fetchData("/users");
+fetchData("/users"); // cached
