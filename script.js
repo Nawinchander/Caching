@@ -57,12 +57,12 @@ console.log(cachedSquare(5)); // cached
 
 /// EX 3 
 
-const cache = {};
+const caches = {};
 
 async function fetchData(url) {
   if (cache[url]) {
     console.log("Cache hit");
-    return cache[url];
+    return caches[url];
   }
 
   console.log("Fetching from API...");
@@ -70,7 +70,7 @@ async function fetchData(url) {
   // fake fetch result
   const response = { data: "API response for " + url };
 
-  cache[url] = response;
+  caches[url] = response;
   return response;
 }
 
