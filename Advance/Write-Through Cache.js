@@ -5,7 +5,10 @@
 // Write to DB AND cache together
 
 
-
+async function updateUser(user, cache, db) {
+  await db.updateUser(user);
+  await cache.set(user.id, JSON.stringify(user));
+}
 
 
 
