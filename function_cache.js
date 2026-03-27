@@ -15,3 +15,6 @@ function slowSquare(n) {
 
 console.log(slowSquare(5)); // Calculated
 console.log(slowSquare(5)); // From cache
+
+
+
