@@ -8,7 +8,12 @@
 // Good (Cursor-based pagination) - SELECT * FROM users WHERE id > 100000 LIMIT 10;
 
 
-
+async function getUsers(cursor, db) {
+  return db.query(
+    'SELECT * FROM users WHERE id > ? LIMIT 10',
+    [cursor]
+  );
+}
 
 
 
